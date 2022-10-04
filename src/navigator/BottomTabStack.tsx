@@ -7,7 +7,7 @@ import { getScreenConfiguration } from '../utils/NavigationUtils'
 import { UserListScreen } from '../screens'
 
 
-const bottomTabBarKeys = {
+const adminBottomTabBarKeys = {
   [TAB_KEYS.HOME_TAB]: getScreenConfiguration({
     screenName: HomeScreen
   }),
@@ -17,8 +17,15 @@ const bottomTabBarKeys = {
   })
 }
 
-const bottomTabBarStack = () => {
+const normalBottomTabBarKeys = {
+  [TAB_KEYS.HOME_TAB]: getScreenConfiguration({
+    screenName: HomeScreen
+  })
+}
+
+const bottomTabBarStack = (isAdmin = true) => {
   const Tab = createBottomTabNavigator()
+  const tabBarKeys = isAdmin ? adminBottomTabBarKeys : normalBottomTabBarKeys
 
   return (
     <Tab.Navigator
@@ -30,7 +37,7 @@ const bottomTabBarStack = () => {
       tabBar={props => <BottomTabBarComponent {...props} />}
     >
       {Object.entries({
-        ...bottomTabBarKeys
+         ...tabBarKeys
       }).map(([name, component]) => <Tab.Screen name={name} {...component} />)}
     </Tab.Navigator>
   )

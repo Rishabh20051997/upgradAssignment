@@ -5,7 +5,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-nat
 import { colors } from '../common/Colors'
 
 
-interface State {
+type State = {
   value?: string
 }
 

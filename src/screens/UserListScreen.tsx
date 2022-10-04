@@ -9,10 +9,10 @@ import { navigationDataStore, userDataStore } from '../stores'
 import { removeUserSignInStatus } from '../utils/AuthUtils'
 
 
-interface State {
+type State = {
   //
 }
-interface Props {
+type Props = {
   //
 }
 
@@ -113,7 +113,7 @@ export class UserListScreen extends Component<Props, State> {
   }
 
   renderActionButton = (id) => {
-    return <View style={{ flexDirection: 'row', justifyContent: 'space-between', borderRadius: 5 }}>
+    return <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
       <TouchableOpacity 
       onPress={() => userDataStore.acceptUser(id)}
       style={styles.acceptButton}>

@@ -2,8 +2,10 @@ import { observer } from 'mobx-react'
 import React, { Component } from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
+import { get } from 'lodash'
 
 import { colors } from '../common/Colors'
+import { USER_TYPE } from '../common/Constant'
 import { TextInputWrapper } from '../component'
 import { STACK_NAMES } from '../navigator'
 import { loginDataStore, navigationDataStore, userDataStore } from '../stores'
@@ -56,9 +58,10 @@ export class LoginScreen extends Component<Props, State> {
   onLoginPressed = () => {
     const { isValid, userInfo } = loginDataStore.validateForm()
     if (isValid) {
+      const isAdmin = get(userInfo, 'accountType') === USER_TYPE.ADMIN
       userDataStore.setUserInfo(userInfo)
+      navigationDataStore.setCurrentStackName(isAdmin ? STACK_NAMES.ADMIN_TAB_STACK : STACK_NAMES.NORMAL_TAB_STACK)
       setUserSignedIn()
-      navigationDataStore.setCurrentStackName(STACK_NAMES.HOME_STACK)
       setUserInfo(userInfo)
     }
 

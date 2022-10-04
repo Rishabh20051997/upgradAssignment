@@ -6,10 +6,10 @@ import { icons } from '../common/Icons'
 import { userDataStore } from '../stores'
 
 
-interface State {
+type State = {
     //
 }
-interface Props {
+type Props = {
     navigation?: any
     //
 }

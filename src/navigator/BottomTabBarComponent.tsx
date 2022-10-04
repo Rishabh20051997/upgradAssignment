@@ -3,18 +3,18 @@ import { View, TouchableOpacity, Image, Text, StyleSheet } from 'react-native'
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import { get, map } from 'lodash'
 
-import { isTablet, MAIN_STACK_KEYS, TAB_KEYS } from '../common/Constant'
+import { isTablet, TAB_STACK_KEYS, TAB_KEYS } from '../common/Constant'
 import { navigationDataStore } from '../stores'
 import { colors } from '../common/Colors'
 import { icons } from '../common/Icons'
 
 const TAB_BAR_KEY: Map<string, any> = new Map([
   [TAB_KEYS.HOME_TAB, {
-    STACK_NAME: MAIN_STACK_KEYS.HOME_STACK,
+    STACK_NAME: TAB_STACK_KEYS.HOME,
     NORMAL_ICON: icons.HOME_ICON
   }],
   [TAB_KEYS.USER_LIST_TAB, {
-    STACK_NAME: MAIN_STACK_KEYS.USER_LIST_STACK,
+    STACK_NAME: TAB_STACK_KEYS.USER_LIST,
     NORMAL_ICON: icons.MORE_ICON
   }]
 ])
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   tabBarContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     width: isTablet() ? '50%' : '100%'
   },
   tabContainer: {
@@ -48,7 +48,7 @@ const bottomTabBarComponent = ({ state, navigation }) => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    navigationDataStore.setActiveTabName(MAIN_STACK_KEYS.HOME_STACK)
+    navigationDataStore.setActiveTabName(TAB_STACK_KEYS.HOME)
   }, [])
 
   // eslint-disable-next-line react-hooks/rules-of-hooks

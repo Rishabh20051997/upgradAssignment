@@ -7,11 +7,11 @@ import stores, { navigationDataStore } from './stores'
 import { setRouterHandler } from './navigator'
 import { LogBox } from 'react-native'
 
-interface State {
+type State = {
     //
 }
 
-interface Props {
+type Props = {
     //
 }
 

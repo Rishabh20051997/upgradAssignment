@@ -56,7 +56,7 @@ export class LoginDataStore {
     validateCredential = () => {
         return find(USER_LOGIN_CREDENTIAL, item => {
             const { userName, password } = item
-            return userName === this.username && password === this.password
+            return userName === this.username.trim() && password === this.password.trim()
         })
     }
 
@@ -69,7 +69,7 @@ export class LoginDataStore {
             this.updateUserNameErrorMsg('Please Enter Valid User Name')
         }
         if (!hasValidPassword) {
-            this.updatePasswordErrorMsg('Please Enter Valid password')
+            this.updatePasswordErrorMsg('Password must contain alphanumeric and special characters')
         }
 
         if (!isEmpty(userInfo)) {

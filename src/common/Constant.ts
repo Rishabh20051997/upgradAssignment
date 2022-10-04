@@ -5,10 +5,14 @@ export const TAB_KEYS = {
     USER_LIST_TAB: 'UserList'
 }
 
-export const MAIN_STACK_KEYS = {
-    HOME_STACK: 'homeStack',
-    USER_LIST_STACK: 'userListStack',
-    TAB_BAR_STACK: 'tabBarStack'
+export const TAB_STACK_KEYS = {
+    HOME: 'homeStack',
+    USER_LIST: 'userListStack',
 }
 
 export const isTablet = () => DeviceInfo.isTablet()
+
+export enum USER_TYPE {
+ ADMIN = 'admin',
+ NORMAL = 'normal'
+}

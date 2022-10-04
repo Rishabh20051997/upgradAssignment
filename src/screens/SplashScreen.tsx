@@ -4,10 +4,10 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { colors } from '../common/Colors'
 
 
-interface State {
+type State = {
   //
 }
-interface Props {
+type Props = {
   //
 }
 
